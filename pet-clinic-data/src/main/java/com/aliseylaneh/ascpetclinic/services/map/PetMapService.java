@@ -5,6 +5,7 @@ import com.aliseylaneh.ascpetclinic.services.PetService;
 import org.springframework.stereotype.Service;
 
 import java.util.Set;
+
 @Service
 public class PetMapService extends AbstractMapService<Pet, Long> implements PetService {
     @Override
@@ -24,7 +25,7 @@ public class PetMapService extends AbstractMapService<Pet, Long> implements PetS
 
     @Override
     public Pet save(Pet object) {
-        return super.save(object.getId(), object);
+        return super.save(object);
     }
 
     @Override
