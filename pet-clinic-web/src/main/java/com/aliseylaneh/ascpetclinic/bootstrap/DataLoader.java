@@ -79,7 +79,7 @@ public class DataLoader implements CommandLineRunner {
         jakesPet.setName("Roswell");
         owner2.getPets().add(jakesPet);
         ownerService.save(owner2);
-        
+
         Visit catVisit = new Visit();
         catVisit.setPet(jakesPet);
         catVisit.setDate(LocalDate.now());
