@@ -25,14 +25,18 @@ public class PetTypeFormatter implements Formatter<PetType> {
 
     @Override
     public PetType parse(String text, Locale locale) throws ParseException {
+
         Collection<PetType> findPetTypes = petTypeService.findAll();
 
-        for (PetType type : findPetTypes) {
-            if (type.getName().equals(text)) {
-                return type;
-            }
-        }
+        PetType foundPetType = findPetTypes
+                .stream()
+                .filter(petType -> petType.getName().equals(text))
+                .findFirst()
+                .get();
 
-        throw new ParseException("type not found: " + text, 0);
+        if (foundPetType != null)
+            return foundPetType;
+        else
+            throw new ParseException("type not found:" + text, 0);
     }
 }
